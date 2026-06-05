@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+<meta charset="UTF-8">
 
 <script type="module"
 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
@@ -10,6 +10,7 @@ src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 <style>
 body{
     margin:0;
+    background:#222;
 }
 
 model-viewer{
@@ -22,12 +23,17 @@ model-viewer{
 
 <body>
 
+<h1 style="color:white;position:absolute;z-index:1000">
+MODELO CARGANDO
+</h1>
+
 <model-viewer
 src="Modelos/Conjunto_cinta.glb"
 camera-controls
-auto-rotate>
+auto-rotate
+shadow-intensity="1"
+exposure="1">
 </model-viewer>
 
 </body>
-
 </html>
