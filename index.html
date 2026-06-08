@@ -3,32 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+
+<script type="module"
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+
 <style>
-  body { margin: 0; overflow: hidden; background: #333; }
-  model-viewer { width: 100vw; height: 100vh; }
-</style>
-</head>
-<body>
+body{
+    margin:0;
+}
 
-<model-viewer
-  src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-  camera-controls
-  ar
-  ar-modes="scene-viewer webxr"
-  style="width:100vw;height:100vh;">
+model-viewer{
+    width:100vw;
+    height:100vh;
+}
 
-  <button slot="ar-button" style="
+#ar-button{
     position:absolute;
     bottom:20px;
     left:50%;
     transform:translateX(-50%);
     padding:15px 25px;
-    font-size:18px;">
-    📱 Ver en AR
-  </button>
+    font-size:18px;
+    z-index:999;
+}
+</style>
+</head>
 
+<body>
+
+<model-viewer
+id="visor"
+src="Modelos/sector_llenado.glb"
+camera-controls
+auto-rotate
+ar
+ar-modes="scene-viewer webxr"
+style="width:100vw;height:100vh;">
 </model-viewer>
+
+<button id="ar-button">
+📱 Ver en AR
+</button>
+
+<script>
+document.getElementById('ar-button').addEventListener('click', async () => {
+    const visor = document.getElementById('visor');
+
+    try {
+        await visor.activateAR();
+    } catch(err) {
+        alert("Error AR: " + err);
+        console.error(err);
+    }
+});
+</script>
 
 </body>
 </html>
