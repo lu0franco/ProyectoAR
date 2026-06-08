@@ -12,18 +12,18 @@
 <body>
 
 <model-viewer
-  src="Modelos/SECTOR DE LLENADO.glb"
-  alt="Modelo 3D de conjunto cinta"
+  src="Modelos/sector_llenado.glb"
+  alt="Sector de llenado"
   camera-controls
   auto-rotate
-  shadow-intensity="1"
-  exposure="1"
-  environment-image="neutral"
-  interaction-prompt="auto"
   ar
-  ar-modes="webxr scene-viewer quick-look"
-  ar-scale="auto"
-  touch-action="pan-y">
+  ar-modes="scene-viewer webxr"
+  ar-scale="auto">
+
+  <button slot="ar-button">
+    📱 Ver en AR
+  </button>
+
 </model-viewer>
 
 </body>
